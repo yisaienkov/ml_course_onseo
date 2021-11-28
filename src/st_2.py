@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
         submitted = st.form_submit_button("Submit")
         if submitted:
-            sentiment = sentiment_model(text=text)
+            sentiment = sentiment_model(text=text)["sentiment"]
             st.write(f"Sentiment: {sentiment_map[sentiment]}")
 
             if sentiment == 1:
