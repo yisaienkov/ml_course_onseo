@@ -21,3 +21,14 @@
 
 > docker run -it -v C:/ml_course_onseo/:/app/ dev_ml_course /bin/bash
 ```
+
+
+## DVC
+
+```bash
+> dvc init
+
+> dvc remote add -d storage gdrive://1LUer-6TYRc66rSLz7tDGixFKBRduwUd0
+
+> dvc add resources/data.txt
+```
