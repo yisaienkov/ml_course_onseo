@@ -4,19 +4,19 @@ stages:
     cmd: python src_dvc/split.py
     deps:
     - path: resources/data.txt
-      md5: 683dc2e6ce3d3b980bbd0f297e1f9860
-      size: 28
+      md5: 8412d75fb083edcf9e287929ff949c6e
+      size: 30
     - path: src_dvc/split.py
-      md5: e5aed2cd7a458eb6cb26206c0d304d79
-      size: 560
+      md5: fe191cbaeb0380f01e9eb8c595730faa
+      size: 562
     params:
       params.yaml:
         split:
-          seed: 42
+          seed: 43
     outs:
     - path: resources/test.txt
-      md5: 93b41ff28b0db521a338dd725b6f953d
-      size: 14
+      md5: ae46cbeb3eb9253b3b151031923ae780
+      size: 16
     - path: resources/train.txt
       md5: 06c11fa01c27e1bf8d29f013acf04330
       size: 14
@@ -32,7 +32,7 @@ stages:
     params:
       params.yaml:
         train:
-          seed: 42
+          seed: 43
           positive_zero: true
     outs:
     - path: resources/model.txt
@@ -45,16 +45,16 @@ stages:
       md5: c18b5c091d8db79ce77145f623c4dede
       size: 8
     - path: resources/test.txt
-      md5: 93b41ff28b0db521a338dd725b6f953d
-      size: 14
+      md5: ae46cbeb3eb9253b3b151031923ae780
+      size: 16
     - path: src_dvc/eval.py
       md5: edca7b472493fa94e5f0a1ee37d38013
       size: 945
     params:
       params.yaml:
         eval:
-          seed: 42
+          seed: 43
     outs:
     - path: metrics.json
-      md5: 12b39e73c9cc4b9187492ae478de89e5
+      md5: 911e593fa6f8e3e915d10cf55b455b1b
       size: 66
