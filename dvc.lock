@@ -4,8 +4,8 @@ stages:
     cmd: python src_dvc/split.py
     deps:
     - path: resources/data.txt
-      md5: 8412d75fb083edcf9e287929ff949c6e
-      size: 30
+      md5: e5d33e72447d9a002d82ef3ddc846e61
+      size: 32
     - path: src_dvc/split.py
       md5: fe191cbaeb0380f01e9eb8c595730faa
       size: 562
@@ -18,14 +18,14 @@ stages:
       md5: ae46cbeb3eb9253b3b151031923ae780
       size: 16
     - path: resources/train.txt
-      md5: 06c11fa01c27e1bf8d29f013acf04330
-      size: 14
+      md5: 5aa497288375de6d5e79b5912b03bde7
+      size: 16
   train:
     cmd: python src_dvc/train.py
     deps:
     - path: resources/train.txt
-      md5: 06c11fa01c27e1bf8d29f013acf04330
-      size: 14
+      md5: 5aa497288375de6d5e79b5912b03bde7
+      size: 16
     - path: src_dvc/train.py
       md5: 5a39daaafbc3f2f68b54190ca5af5371
       size: 912
