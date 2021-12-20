@@ -1,0 +1,60 @@
+schema: '2.0'
+stages:
+  split:
+    cmd: python src_dvc/split.py
+    deps:
+    - path: resources/data.txt
+      md5: 683dc2e6ce3d3b980bbd0f297e1f9860
+      size: 28
+    - path: src_dvc/split.py
+      md5: e5aed2cd7a458eb6cb26206c0d304d79
+      size: 560
+    params:
+      params.yaml:
+        split:
+          seed: 42
+    outs:
+    - path: resources/test.txt
+      md5: 93b41ff28b0db521a338dd725b6f953d
+      size: 14
+    - path: resources/train.txt
+      md5: 06c11fa01c27e1bf8d29f013acf04330
+      size: 14
+  train:
+    cmd: python src_dvc/train.py
+    deps:
+    - path: resources/train.txt
+      md5: 06c11fa01c27e1bf8d29f013acf04330
+      size: 14
+    - path: src_dvc/train.py
+      md5: 5a39daaafbc3f2f68b54190ca5af5371
+      size: 912
+    params:
+      params.yaml:
+        train:
+          seed: 42
+          positive_zero: true
+    outs:
+    - path: resources/model.txt
+      md5: c18b5c091d8db79ce77145f623c4dede
+      size: 8
+  eval:
+    cmd: python src_dvc/eval.py
+    deps:
+    - path: resources/model.txt
+      md5: c18b5c091d8db79ce77145f623c4dede
+      size: 8
+    - path: resources/test.txt
+      md5: 93b41ff28b0db521a338dd725b6f953d
+      size: 14
+    - path: src_dvc/eval.py
+      md5: edca7b472493fa94e5f0a1ee37d38013
+      size: 945
+    params:
+      params.yaml:
+        eval:
+          seed: 42
+    outs:
+    - path: metrics.json
+      md5: 12b39e73c9cc4b9187492ae478de89e5
+      size: 66
