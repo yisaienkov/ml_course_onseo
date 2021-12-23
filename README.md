@@ -37,4 +37,10 @@
 > dvc run -n train -p train -d resources/train.txt -d src_dvc/train.py -o resources/model.txt python src_dvc/train.py
 
 > dvc run -n eval -p eval -d resources/test.txt -d resources/model.txt -d src_dvc/eval.py -M metrics.json python src_dvc/eval.py
+
+> dvc repro
+
+> dvc push
+
+> dvc pull
 ```
